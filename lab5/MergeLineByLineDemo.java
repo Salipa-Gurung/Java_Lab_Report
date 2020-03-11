@@ -1,0 +1,35 @@
+import java.io.*;
+
+class mergelinebyline{
+	public static void main(String[] args){
+		try
+		{
+			PrintWriter pw= new PrintWriter("c.txt");
+			BufferedReader b1=new BufferedReader(new FileReader("a.txt"));
+			BufferedReader b2=new BufferedReader(new FileReader("b.txt"));
+			String line1=b1.readLine();
+			String line2=b2.readLine();
+
+				while(line1 != null || line2 != null)
+				{
+					if(line1 !=null)
+					{	
+						pw.println(line1);
+						line1= b1.readLine();
+					}
+					if(line2 != null)
+					{
+						pw.println(line2);
+						line2=b2.readLine();
+					}
+				}
+				pw.flush();
+				b1.close();
+				b2.close();
+				pw.close();	
+		} 
+		catch(Exception e){
+		System.out.println(e);
+		}
+	}	
+}
